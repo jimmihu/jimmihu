@@ -35,7 +35,7 @@ class UserSeeder extends Seeder
                 'type' => User::TYPE_USER,
                 'name' => 'Test User',
                 'email' => 'user@user.com',
-                'password' => 'usertesting',
+                'password' => 'password',
                 'email_verified_at' => now(),
                 'active' => true,
             ]);
