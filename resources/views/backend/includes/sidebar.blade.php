@@ -17,6 +17,37 @@
                     href="#"
                     icon="c-sidebar-nav-icon cil-building"
                     class="c-sidebar-nav-dropdown-toggle"
+                    :text="__('Post')" />
+
+                <ul class="c-sidebar-nav-dropdown-items">
+                    <li class="c-sidebar-nav-item">
+                        <x-utils.link
+                            :href="route('admin.post.index')"
+                            class="c-sidebar-nav-link"
+                            :text="__('All Posts')" />
+                    </li>
+                    <li class="c-sidebar-nav-item">
+                        <x-utils.link
+                            :href="route('admin.post.create')"
+                            class="c-sidebar-nav-link"
+                            :text="__('Add New')" />
+                    </li>
+                    <li class="c-sidebar-nav-item">
+                        <x-utils.link
+                            :href="route('admin.post.index.preview')"
+                            class="c-sidebar-nav-link"
+                            :text="__('Preview')" />
+                    </li>
+                </ul>
+
+                
+        </li>
+
+        <li class="c-sidebar-nav-dropdown">
+                <x-utils.link
+                    href="#"
+                    icon="c-sidebar-nav-icon cil-building"
+                    class="c-sidebar-nav-dropdown-toggle"
                     :text="__('biodata.Company')" />
 
                 <ul class="c-sidebar-nav-dropdown-items">
@@ -33,6 +64,8 @@
                             :text="__('biodata.All Employees')" />
                     </li>
                 </ul>
+
+                
         </li>
 
         @if (
