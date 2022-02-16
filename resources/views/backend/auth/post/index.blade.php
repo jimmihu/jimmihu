@@ -8,6 +8,7 @@
 <link href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+
 <script>
     $(document).ready(function() {
         $('#publish').DataTable();
@@ -18,6 +19,39 @@
     $(document).ready(function() {
         $('#thrash').DataTable();
     } );
+    function publish() {
+        var x = document.getElementById("publishDiv");
+        var y = document.getElementById("publishA");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            y.style.color = "black";
+        } else {
+            x.style.display = "none";
+            y.style.color = "blue";
+        }
+    }
+    function draft() {
+        var x = document.getElementById("draftDiv");
+        var y = document.getElementById("draftA");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            y.style.color = "black";
+        } else {
+            x.style.display = "none";
+            y.style.color = "blue";
+        }
+    }
+    function thrash() {
+        var x = document.getElementById("thrashDiv");
+        var y = document.getElementById("thrashA");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            y.style.color = "black";
+        } else {
+            x.style.display = "none";
+            y.style.color = "blue";
+        }
+    }
 </script>
 
 @section('content')
@@ -35,7 +69,8 @@
             </x-slot>
 
         <x-slot name="body">
-            <h3>Published ({{count($publishs)}})</h3>
+            <a onclick="publish()" style="color:black;" id="publishA"><h3>Published ({{count($publishs)}})</h3></a>
+            <div id="publishDiv">
             <table id="publish" class="display" style="width:100%">
                 <thead>
                 <tr>
@@ -60,8 +95,10 @@
                 </tr>
                 @endforeach  </tbody>
             </table>
+            </div>
 
-            <h3>Drafts ({{count($drafts)}})</h3>
+            <a onclick="draft()" style="color:blue;" id="draftA"><h3>Drafts ({{count($drafts)}})</h3></a>
+            <div id="draftDiv" style="display:none">
             <table id="draft" class="display" style="width:100%">
                 <thead>
                 <tr>
@@ -86,8 +123,10 @@
                 </tr>
                 @endforeach  </tbody>
             </table>
+            </div>
 
-            <h3>Thrashed ({{count($thrashs)}})</h3>
+            <a onclick="thrash()" style="color:blue;" id="thrashA"><h3>Thrashed ({{count($thrashs)}})</h3></a>
+            <div id="thrashDiv" style="display:none">
             <table id="thrash" class="display" style="width:100%">
                 <thead>
                 <tr>
@@ -109,6 +148,7 @@
                 </tr>
                 @endforeach  </tbody>
             </table>
+            </div>
         </x-slot>
     </x-backend.card>
 @endsection
