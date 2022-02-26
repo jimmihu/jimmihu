@@ -5,6 +5,10 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\PostController;
 use Tabuna\Breadcrumbs\Trail;
+use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\OutletController;
+use App\Http\Controllers\DiskonController;
+use App\Http\Controllers\OrderController;
 
 // All route names are prefixed with 'admin.'.
 Route::redirect('/', '/admin/dashboard', 301);
@@ -18,3 +22,5 @@ Route::resource('company',CompanyController::class);
 Route::get('employee/creates/{id}',[EmployeeController::class,'creates'])->name('employee.creates');
 Route::resource('post',PostController::class);
 Route::get('post/index/preview',[PostController::class,'preview'])->name('post.index.preview');
+Route::resource('produk',ProdukController::class);
+Route::resource('outlet',OutletController::class);

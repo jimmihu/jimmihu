@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', __('biodata.All Employee'))
+@section('title', __('biodata.All Employees'))
 
 @section('breadcrumb-links')
 @endsection

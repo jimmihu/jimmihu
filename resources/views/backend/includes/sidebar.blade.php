@@ -17,6 +17,29 @@
                     href="#"
                     icon="c-sidebar-nav-icon cil-building"
                     class="c-sidebar-nav-dropdown-toggle"
+                    :text="__('PT Kalbe Farma Tbk.')" />
+
+                <ul class="c-sidebar-nav-dropdown-items">
+                    <li class="c-sidebar-nav-item">
+                        <x-utils.link
+                            :href="route('admin.produk.index')"
+                            class="c-sidebar-nav-link"
+                            :text="__('Produk')" />
+                    </li>
+                    <li class="c-sidebar-nav-item">
+                        <x-utils.link
+                            :href="route('admin.outlet.index')"
+                            class="c-sidebar-nav-link"
+                            :text="__('Outlet')" />
+                    </li>
+                </ul>
+        </li>
+
+        <li class="c-sidebar-nav-dropdown">
+                <x-utils.link
+                    href="#"
+                    icon="c-sidebar-nav-icon cil-building"
+                    class="c-sidebar-nav-dropdown-toggle"
                     :text="__('Post')" />
 
                 <ul class="c-sidebar-nav-dropdown-items">
