@@ -32,6 +32,12 @@
                             class="c-sidebar-nav-link"
                             :text="__('Outlet')" />
                     </li>
+                    <li class="c-sidebar-nav-item">
+                        <x-utils.link
+                            :href="route('admin.diskon.index')"
+                            class="c-sidebar-nav-link"
+                            :text="__('Diskon')" />
+                    </li>
                 </ul>
         </li>
 

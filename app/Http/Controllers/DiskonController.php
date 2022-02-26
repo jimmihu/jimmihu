@@ -2,7 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use Mail;
+use App\Http\Controllers\Controller;
+use App\Models\Auth\User\User;
+use App\Models\Outlet;
+use App\Models\Diskon_H;
+use App\Models\Diskon_D;
 use Illuminate\Http\Request;
+use Validator;
+use Input;
+use Illuminate\Support\Facades\Auth;
 
 class DiskonController extends Controller
 {
@@ -13,7 +22,9 @@ class DiskonController extends Controller
      */
     public function index()
     {
-        //
+        $diskon = Diskon_H::paginate(10);
+        $outlet = Outlet::paginate(10);
+        return view('backend.auth.diskon.index',["diskons"=>$diskon,"outlets"=>$outlet]);
     }
 
     /**
@@ -23,7 +34,8 @@ class DiskonController extends Controller
      */
     public function create()
     {
-        //
+        $outlet = Outlet::paginate(10);
+        return view('backend.auth.diskon.create',["outlets"=>$outlet]);
     }
 
     /**
@@ -34,7 +46,20 @@ class DiskonController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'kdoutlet' => 'required',
+            'awal' => 'required',
+            'akhir' => 'required'
+            
+        ]);
+        $diskon = Diskon_H::create([
+            'awal' => $request->awal,
+            'akhir' => $request->akhir
+        ]);
+        $outlet = Outlet::where('kdoutlet',$request->kdoutlet)->first();
+        $diskon->outlet()->associate($outlet);
+        $diskon->save();
+        return redirect()->intended(route('admin.diskon.index'));
     }
 
     /**
@@ -79,6 +104,8 @@ class DiskonController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $diskon = Diskon_H::where('nosurat', $id)->first();
+        $diskon->delete();
+        return redirect()->intended(route('admin.diskon.index'));
     }
 }

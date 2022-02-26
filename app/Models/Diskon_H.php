@@ -12,4 +12,14 @@ class Diskon_H extends Model
     protected $table = 'diskon_h';
     protected $primaryKey = 'nosurat';
     protected $fillable = ['kdoutlet','awal','akhir'];
+
+    public function outlet()
+    {
+        return $this->belongsTo(Outlet::class,'kdoutlet');
+    }
+
+    public function detail()
+    {
+        return $this->hasMany(Diskon_D::class,'nosurat');
+    }
 }

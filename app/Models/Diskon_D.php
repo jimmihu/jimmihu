@@ -11,5 +11,10 @@ class Diskon_D extends Model
 
     protected $table = 'diskon_d';
     protected $primaryKey = 'nosurat';
-    protected $fillable = ['diskon','min','max'];
+    protected $fillable = ['kdproduk','diskon','min','max'];
+
+    public function header()
+    {
+        return $this->belongsTo(Diskon_H::class,'nosurat');
+    }
 }

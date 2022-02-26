@@ -24,3 +24,4 @@ Route::resource('post',PostController::class);
 Route::get('post/index/preview',[PostController::class,'preview'])->name('post.index.preview');
 Route::resource('produk',ProdukController::class);
 Route::resource('outlet',OutletController::class);
+Route::resource('diskon',DiskonController::class);

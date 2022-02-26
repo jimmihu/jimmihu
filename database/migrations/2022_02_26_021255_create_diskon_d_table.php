@@ -19,6 +19,11 @@ class CreateDiskonDTable extends Migration
             ->references('nosurat')
             ->on('diskon_h')
             ->onDelete('cascade');
+            $table->integer('kdproduk')->unsigned()->nullable();
+            $table->foreign('kdproduk', 'foreign_produk')
+            ->references('kdproduk')
+            ->on('produk')
+            ->onDelete('cascade');
             $table->float('diskon',5,2);
             $table->float('min',18,2);
             $table->float('max',18,2);
