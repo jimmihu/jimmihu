@@ -10,11 +10,16 @@ class Diskon_D extends Model
     use HasFactory;
 
     protected $table = 'diskon_d';
-    protected $primaryKey = 'nosurat';
+    protected $primaryKey = 'id';
     protected $fillable = ['kdproduk','diskon','min','max'];
 
     public function header()
     {
         return $this->belongsTo(Diskon_H::class,'nosurat');
+    }
+
+    public function produk()
+    {
+        return $this->belongsTo(Produk::class,'kdproduk','kdproduk');
     }
 }

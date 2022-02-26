@@ -14,6 +14,7 @@ class CreateDiskonDTable extends Migration
     public function up()
     {
         Schema::create('diskon_d', function (Blueprint $table) {
+            $table->increments('id')->unsigned();
             $table->integer('nosurat')->unsigned()->nullable();
             $table->foreign('nosurat', 'foreign_diskon_h')
             ->references('nosurat')

@@ -38,6 +38,12 @@
                             class="c-sidebar-nav-link"
                             :text="__('Diskon')" />
                     </li>
+                    <li class="c-sidebar-nav-item">
+                        <x-utils.link
+                            :href="route('admin.order.index')"
+                            class="c-sidebar-nav-link"
+                            :text="__('Order')" />
+                    </li>
                 </ul>
         </li>
 

@@ -25,3 +25,7 @@ Route::get('post/index/preview',[PostController::class,'preview'])->name('post.i
 Route::resource('produk',ProdukController::class);
 Route::resource('outlet',OutletController::class);
 Route::resource('diskon',DiskonController::class);
+Route::get('diskon/creates/{id}',[DiskonController::class,'creates'])->name('diskon.creates');
+Route::post('diskon/stores/{id}',[DiskonController::class,'stores'])->name('diskon.stores');
+Route::delete('diskon/delete/{id}/{id2}',[DiskonController::class,'delete'])->name('diskon.deletes');
+Route::resource('order',OrderController::class);

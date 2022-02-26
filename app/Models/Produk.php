@@ -12,4 +12,9 @@ class Produk extends Model
     protected $table = 'produk';
     protected $primaryKey = 'kdproduk';
     protected $fillable = ['nmproduk','hna'];
+
+    public function diskon()
+    {
+        return $this->hasMany(Diskon_D::class);
+    }
 }
