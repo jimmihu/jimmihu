@@ -1,8 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Mail;
+use App\Http\Controllers\Controller;
+use App\Models\Auth\User\User;
+use App\Models\Order_H;
+use App\Models\Order_D;
+use App\Models\Outlet;
+use App\Models\Produk;
+use App\Models\Diskon_H;
+use App\Models\Diskon_D;
 use Illuminate\Http\Request;
+use Validator;
+use Input;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
@@ -13,7 +24,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $order = Order_H::paginate(10);
+        return view('backend.auth.order.index',["orders"=>$order]);
     }
 
     /**
